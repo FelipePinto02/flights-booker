@@ -8,4 +8,8 @@ class Flight < ApplicationRecord
   def self.dates_options
     order(:date).pluck(:date).uniq.map { |d| [d.strftime('%d/%m/%Y'), d] }
   end
+
+  def format_date
+    date.strftime('%d/%m/%Y')
+  end
 end

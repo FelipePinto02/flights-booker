@@ -4,7 +4,7 @@
 <ul>
   <li>Departure: <%= @flight.departure_airport.code %></li>
   <li>Arrival: <%= @flight.arrival_airport.code %></li>
-  <li>Date: <%= @flight.date.strftime('%d/%m/%Y') %></li>
+  <li>Date: <%= @flight.format_date %></li>
 </ul>
 
 <h2>Passengers Details:</h2>

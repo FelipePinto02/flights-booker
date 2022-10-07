@@ -3,7 +3,7 @@
 <ul>
   <li>Departing from <%= @flight.departure_airport.code %> </li>
   <li>Arriving at <%= @flight.arrival_airport.code %> </li>
-  <li>Date: <%= @flight.date.strftime('%d/%m/%Y') %> </li>
+  <li>Date: <%= @flight.format_date %> </li>
 </ul>
 
 <h2>User Info</h2>
