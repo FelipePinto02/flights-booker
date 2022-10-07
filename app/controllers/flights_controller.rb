@@ -6,6 +6,8 @@ class FlightsController < ApplicationController
     @flights = Flight.where(flight_search_params) if params[:flight]
   end
 
+  private
+
   def flight_search_params
     params.require(:flight).permit(:departure_airport_id, :arrival_airport_id, :date)
   end
