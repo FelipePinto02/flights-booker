@@ -1,6 +1,6 @@
 <h1>Flights Booker</h1>
 
-<%= form_with model: @flights, url: '/flights', method: :get do |form| %>
+<%= form_with model: @flights, url: flights_path, method: :get do |form| %>
   <div class="form-section">
     <%= form.label :departure_airport, 'Departure Airport:' %> <br>
     <%= form.select(:departure_airport_id, @departure_options) %>
@@ -24,8 +24,13 @@
 
 <% if params[:flight] %>
   <% if @flights.any? %>
-    <% @flights.each do |flight| %>
-      <p><%= flight.departure_airport.code %> <%= flight.arrival_airport.code %> </p>
+    <%= form_with model: @flights, url: 'bookings/new', method: :get do |form| %>
+      <% @flights.each do |flight| %>
+        <%= form.hidden_field :passengers, value: @passengers %>
+        <%= form.radio_button :flight_id, flight.id %>
+        <p><%= flight.departure_airport.code %> <%= flight.arrival_airport.code %> </p>
+        <%= form.submit 'Continue' %>
+      <% end %>
     <% end %>
   <% else %>
     <p>No flights found.</p>
