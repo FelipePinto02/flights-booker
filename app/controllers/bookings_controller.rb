@@ -1,4 +1,10 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = Booking.find(params[:id])
+    @flight = @booking.flight
+    @passengers = @booking.passengers
+  end
+
   def new
     passengers_amount = params[:flight][:passengers].to_i
 
@@ -13,7 +19,7 @@ class BookingsController < ApplicationController
     @flight = Flight.find(params[:booking][:flight_id])
 
     if @booking.save
-      puts 'saved'
+      redirect_to @booking
     else
       render :new, status: :unprocessable_entity
     end
