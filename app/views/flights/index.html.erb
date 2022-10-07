@@ -7,14 +7,27 @@
   </div> <br>
   <div class="form-section">
     <%= form.label :arrival_airport, 'Arrival Airport:' %> <br>
-    <%= form.select(:departure_airport_id, @arrival_options) %>
+    <%= form.select(:arrival_airport_id, @arrival_options) %>
   </div> <br>
   <div class="form-section">
     <%= form.label :date, 'Date:' %> <br>
-    <%= form.select(:departure_airport_id, @date_options) %>
+    <%= form.select(:date, @date_options) %>
   </div> <br>
   <div class="form-section">
     <%= form.label :passengers, 'Passengers:' %> <br>
-    <%= form.select(:departure_airport_id, @passengers_options) %>
+    <%= form.select(:passengers, @passengers_options) %>
   </div> <br>
+  <div class="form-section">
+    <%= form.submit 'Search' %> <br>
+  </div> <br>
+<% end %>
+
+<% if params[:flight] %>
+  <% if @flights.any? %>
+    <% @flights.each do |flight| %>
+      <p><%= flight.departure_airport.code %> <%= flight.arrival_airport.code %> </p>
+    <% end %>
+  <% else %>
+    <p>No flights found.</p>
+  <% end %>
 <% end %>
