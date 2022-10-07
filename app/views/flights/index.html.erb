@@ -1,21 +1,21 @@
 <h1>Flights Booker</h1>
 
-<%= form_with model: @flights, url: flights_path, method: :get do |form| %>
+<%= form_with model: @flight, url: flights_path, method: :get do |form| %>
   <div class="form-section">
     <%= form.label :departure_airport, 'Departure Airport:' %> <br>
-    <%= form.select(:departure_airport_id, @departure_options) %>
+    <%= form.select(:departure_airport_id, @options[0]) %>
   </div> <br>
   <div class="form-section">
     <%= form.label :arrival_airport, 'Arrival Airport:' %> <br>
-    <%= form.select(:arrival_airport_id, @arrival_options) %>
+    <%= form.select(:arrival_airport_id, @options[0]) %>
   </div> <br>
   <div class="form-section">
     <%= form.label :date, 'Date:' %> <br>
-    <%= form.select(:date, @date_options) %>
+    <%= form.select(:date, @options[1]) %>
   </div> <br>
   <div class="form-section">
     <%= form.label :passengers, 'Passengers:' %> <br>
-    <%= form.select(:passengers, @passengers_options) %>
+    <%= form.select(:passengers, @options[2]) %>
   </div> <br>
   <div class="form-section">
     <%= form.submit 'Search' %> <br>
