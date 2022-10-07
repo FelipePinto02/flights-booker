@@ -1,17 +1,16 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
-    params[:flight][:passengers].to_i.times { @booking.passengers.build }
+    passengers_amount = params[:flight][:passengers].to_i
 
-    flight = Flight.find(params[:flight][:flight_id])
-    @flight_id = params[:flight][:flight_id]
-    @departure_airport = flight.departure_airport.code
-    @arrival_airport = flight.departure_airport.code
-    @date = flight.date.strftime('%d/%m/%Y')
+    @booking = Booking.new
+    passengers_amount.times { @booking.passengers.build }
+
+    @flight = Flight.find(params[:flight][:flight_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @flight = Flight.find(params[:booking][:flight_id])
 
     if @booking.save
       puts 'saved'
