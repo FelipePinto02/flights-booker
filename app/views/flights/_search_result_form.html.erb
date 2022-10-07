@@ -1,0 +1,12 @@
+<% if flights.any? %>
+  <%= form_with model: flights, url: 'bookings/new', method: :get do |form| %>
+    <% flights.each do |flight| %>
+      <%= form.hidden_field :passengers, value: @passengers %>
+      <%= form.radio_button :flight_id, flight.id %>
+      <p><%= flight.departure_airport.code %> <%= flight.arrival_airport.code %> </p>
+      <%= form.submit 'Continue' %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>No flights found.</p>
+<% end %>
