@@ -9,6 +9,7 @@
 <h2>User Info</h2>
 
 <%= form_with model: @booking do |form| %>
+  <%= form.hidden_field :flight_id, value: @flight_id  %>
   <%= form.fields_for :passengers do |passenger_form| %>
     <%= passenger_form.label :name %> <br>
     <%= passenger_form.text_field :name %> <br>
