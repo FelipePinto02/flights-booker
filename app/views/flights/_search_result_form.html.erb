@@ -1,12 +1,29 @@
 <% if flights.any? %>
-  <%= form_with model: flights, url: 'bookings/new', method: :get do |form| %>
-    <% flights.each do |flight| %>
-      <%= form.hidden_field :passengers, value: @passengers %>
-      <%= form.radio_button :flight_id, flight.id %>
-      <p><%= flight.departure_airport.code %> <%= flight.arrival_airport.code %> </p>
-      <%= form.submit 'Continue' %>
+  <div class="center">
+      <h2 class="white-text">Showing Flights from <%= @departure_airport %> to <%= @arrival_airport %></h2>
+  </div>
+  <div class="flight-form">
+    <%= form_with model: flights, url: 'bookings/new', method: :get do |form| %>
+      <% flights.each do |flight| %>
+        <div class="flight-details">
+          <%= form.hidden_field :passengers, value: @passengers %>
+          <div class="radio-section">
+            <%= form.radio_button :flight_id, flight.id %>
+          </div>
+          <div class="info-section">
+            <p><%= flight.departure_airport.code %></p>
+            <p><%= flight.duration %></p>
+            <p><%= flight.arrival_airport.code %></p>
+          </div>
+        </div>
+      <% end %>
+      <div class="submit-section">
+        <%= form.submit 'Continue' %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 <% else %>
-  <p>No flights found.</p>
+  <div class="center">
+    <h2 class="white-text">No Flights Found.</h2>
+  </div>
 <% end %>

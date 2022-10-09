@@ -2,8 +2,12 @@ class FlightsController < ApplicationController
   def index
     @flight = Flight.new
     @options = [Airport.airport_options, Flight.dates_options, [['1', 1], ['2', 2], ['3', 3], ['4', 4]]]
-    @passengers = params[:flight][:passengers] if params[:flight]
-    @flights = Flight.where(flight_search_params) if params[:flight]
+    return unless params[:flight]
+
+    @passengers = params[:flight][:passengers]
+    @flights = Flight.where(flight_search_params)
+    @departure_airport = Airport.find(params[:flight][:departure_airport_id]).code
+    @arrival_airport = Airport.find(params[:flight][:arrival_airport_id]).code
   end
 
   private

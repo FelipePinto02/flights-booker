@@ -1,14 +1,20 @@
-.page-title {
+.center {
   text-align: center;
+}
+
+.white-text {
+  color: white;
+}
+
+.page-title {
   margin-top: 8%;
 }
 
 .title-text {
   font-size: 2.2rem;
-  color: white;
 }
 
-.search-flight-form {
+.flight-form {
   width: 75%;
   margin: 3% auto;
 }
@@ -41,7 +47,7 @@
   font-size: 0.9rem;
 }
 
-.form-section input[type="submit"] {
+.submit-section input[type="submit"] {
   padding: 8px 16px;
   background-color: #4756e1;
   color: white;
@@ -49,7 +55,23 @@
   border: 2px solid #00000054;
 }
 
-.form-section input[type="submit"]:hover {
+.submit-section input[type="submit"]:hover {
   cursor: pointer;
   transform: scale(1.01);
+}
+
+.flight-details {
+  display: flex;
+  background-color: azure;
+  border-radius: 10px;
+  padding: 15px;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 45px;
+}
+
+.info-section {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
 }
