@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  background-image: linear-gradient(151deg, #7190a5 33%, #cbdae5 70%, transparent);
+}

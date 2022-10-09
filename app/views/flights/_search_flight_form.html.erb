@@ -1,21 +1,25 @@
 <%= form_with model: flight, url: flights_path, method: :get do |form| %>
-  <div class="form-section">
-    <%= form.label :departure_airport, 'Departure Airport:' %> <br>
-    <%= form.select(:departure_airport_id, @options[0]) %>
-  </div> <br>
-  <div class="form-section">
-    <%= form.label :arrival_airport, 'Arrival Airport:' %> <br>
-    <%= form.select(:arrival_airport_id, @options[0]) %>
-  </div> <br>
-  <div class="form-section">
-    <%= form.label :date, 'Date:' %> <br>
-    <%= form.select(:date, @options[1]) %>
-  </div> <br>
-  <div class="form-section">
-    <%= form.label :passengers, 'Passengers:' %> <br>
-    <%= form.select(:passengers, @options[2]) %>
-  </div> <br>
-  <div class="form-section">
-    <%= form.submit 'Search' %> <br>
-  </div> <br>
+  <div class="selectors-section">
+    <div class="form-section">
+      <%= form.label :departure_airport, 'Origin:' %>
+      <%= form.select(:departure_airport_id, @options[0]) %>
+    </div> <br>
+    <div class="form-section">
+      <%= form.label :arrival_airport, 'Arrival:' %>
+      <%= form.select(:arrival_airport_id, @options[0]) %>
+    </div> <br>
+    <div class="form-section">
+      <%= form.label :date, 'Date:' %>
+      <%= form.select(:date, @options[1]) %>
+    </div> <br>
+    <div class="form-section">
+      <%= form.label :passengers, 'Passengers:' %>
+      <%= form.select(:passengers, @options[2]) %>
+    </div> <br>
+  </div>
+  <div class="submit-section">
+    <div class="form-section">
+      <%= form.submit 'Search' %>
+    </div>
+  </div>
 <% end %>
