@@ -1,22 +1,32 @@
-<h1>Summary:</h1>
+<div class="page-title center">
+  <h1 class="white-text">Your Fligth:</h1>
+  <h3 class="subtitle"><%= @flight.departure_airport.code %> | <%= @flight.arrival_airport.code %> | <%= @flight.format_date %></h2>
+</div>
 
-<ul>
-  <li>Departing from <%= @flight.departure_airport.code %> </li>
-  <li>Arriving at <%= @flight.arrival_airport.code %> </li>
-  <li>Date: <%= @flight.format_date %> </li>
-</ul>
+<div class="flight-form">
+  <div class="center">
+    <h2 class="white-text">Passenger Info</h2>
+  </div>
+  <%= form_with model: @booking do |form| %>
+    <%= form.hidden_field :flight_id, value: @flight.id  %>
+    <%= form.fields_for :passengers do |passenger_form| %>
+    <div class="passengers-section">
+    <div class="form-section passenger-count">
+      <p class="white-text passenger-text">Passenger <%= passenger_form.index + 1 %> </p>
+    </div>
 
-<h2>User Info</h2>
-
-<%= form_with model: @booking do |form| %>
-  <%= form.hidden_field :flight_id, value: @flight.id  %>
-  <%= form.fields_for :passengers do |passenger_form| %>
-    <%= passenger_form.label :name %> <br>
-    <%= passenger_form.text_field :name %> <br>
-
-    <%= passenger_form.label :email %> <br>
-    <%= passenger_form.email_field :email %> <br> <br>
-
+      <div class="form-section passenger-info">
+        <%= passenger_form.label :name %>
+        <%= passenger_form.text_field :name %>
+      </div>
+      <div class="form-section passenger-info">
+        <%= passenger_form.label :email %>
+        <%= passenger_form.email_field :email %>
+      </div>
+    </div>
+    <% end %>
+    <div class="submit-section">
+      <%= form.submit %>
+    </div>
   <% end %>
-  <%= form.submit %>
-<% end %>
+</div>

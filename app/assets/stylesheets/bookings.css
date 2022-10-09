@@ -1,0 +1,32 @@
+.subtitle {
+  margin-top: 10px;
+  color: var(--subtitle);
+}
+
+.passengers-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 25px;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 45px;
+}
+
+.passenger-text {
+  font-size: 1.5rem;;
+}
+
+.passengers-section input {
+  padding: 3px;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.passenger-count {
+  flex: 1 auto;
+}
+
+.passenger-info {
+  flex: 2 auto;
+}
