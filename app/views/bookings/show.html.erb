@@ -1,14 +1,46 @@
-<h1>Booking Details</h1>
+<div class="page-title center">
+  <h1 class="white-text">Booking Details</h1>
+</div>
 
-<h2>Flight Details:</h2>
-<ul>
-  <li>Departure: <%= @flight.departure_airport.code %></li>
-  <li>Arrival: <%= @flight.arrival_airport.code %></li>
-  <li>Date: <%= @flight.format_date %></li>
-</ul>
+<div class="info-card">
+  <div class="card-title center">
+    <h2>Flight Details</h2>
+  </div>
+  <div class="date-section card-border center">
+    <h3><%= @flight.format_date %></h3>
+  </div>
+  <div class="card-info-section">
+    <div class="info">
+      <p>Departure</p>
+      <p><%= @flight.departure_airport.code %></p>
+    </div>
+    <div class="info">
+      <p>Duration</p>
+      <p><%= @flight.duration %></p>
+    </div>
+    <div class="info">
+      <p>Arrival</p>
+      <p><%= @flight.arrival_airport.code %></p>
+    </div>
+  </div>
+</div>
 
-<h2>Passengers Details:</h2>
-<% @passengers.each do |passenger| %>
-  <p>Passenger: <%= passenger.name %></p>
-  <p>Contact: <%= passenger.email %></p>
-<% end %>
+<div class="info-card">
+  <div class="card-title card-border center">
+    <h2>Passengers Details</h2>
+  </div>
+  <div class="card-info-section">
+    <div class="info spaced">
+      <p class="info-title">Name</p>
+      <% @passengers.each do |passenger| %>
+        <p> <%= passenger.name %> </p>
+      <% end %>
+    </div>
+    <div class="info spaced">
+      <p class="info-title">Contact</p>
+      <% @passengers.each do |passenger| %>
+        <p> <%= passenger.email %> </p>
+      <% end %>
+    </div>
+  </div>
+</div>

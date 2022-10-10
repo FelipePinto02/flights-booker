@@ -30,3 +30,59 @@
 .passenger-info {
   flex: 2 auto;
 }
+
+.info-card {
+  background-color: azure;
+  width: 55%;
+  margin: 25px auto;
+  border-radius: 25px;
+}
+
+.card-border {
+  width: 75%;
+  margin: auto;
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey;
+}
+
+.card-title {
+  padding: 20px 20px 15px;
+}
+
+.card-title h2 {
+  font-size: 1.8rem;
+}
+
+.date-section {
+  padding: 0px 15px 15px;;
+}
+
+.date-section h3 {
+  font-size: 1.4rem;
+  color: #6d6e6e;
+}
+
+.card-info-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info p {
+  font-size: 1.2rem;
+  color: #282828;
+}
+
+.info-title {
+  font-weight: bold;
+}
+
+.spaced {
+  gap: 15px;
+}
